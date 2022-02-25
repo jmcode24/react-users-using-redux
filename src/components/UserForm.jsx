@@ -45,7 +45,7 @@ function UserForm(props) {
     <div>
       <Container>
         <Row>
-          <Col md='6' className='mx-auto mt-5'>
+          <Col md='6' className='mx-auto mt-2'>
             <Form onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><FaUser /></InputGroup.Text>
