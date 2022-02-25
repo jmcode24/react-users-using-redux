@@ -46,6 +46,7 @@ function UserForm(props) {
       <Container>
         <Row>
           <Col md='6' className='mx-auto mt-2'>
+            <h1 className="text-center text-danger mb-3 mt-2">Redux Users App</h1>
             <Form onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><FaUser /></InputGroup.Text>
