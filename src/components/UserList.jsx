@@ -16,7 +16,7 @@ const UserList = (props) => {
                   <th className='text-info text-center'>#</th>
                   <th className='text-warning text-center'>Name</th>
                   <th className='text-info text-center'>Email</th>
-                  <th className='text-warning text-center'>Generation</th>
+                  <th className='text-warning text-center'>Gen</th>
                 </tr>
               </thead>
               <tbody>
