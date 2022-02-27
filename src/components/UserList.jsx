@@ -24,7 +24,7 @@ const UserList = (props) => {
                 return (
                   // user.name + "-" + index
                   <tr key={index}>
-                    <td className="text-center text-danger">{index + 1}</td>
+                    <td className="text-center text-success">{index + 1}</td>
                     <td className="text-center">{user.name}</td>
                     <td className="text-center">{user.email}</td>
                     <td className="text-center">{user.gen}</td>

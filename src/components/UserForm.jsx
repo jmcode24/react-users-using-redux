@@ -58,7 +58,7 @@ function UserForm(props) {
               </InputGroup>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><AiOutlineNumber /></InputGroup.Text>
-                  <FormControl type="number" placeholder="Gen. Year" value={gen} onChange={handleGenChange} aria-label="Gen Year" aria-describedby="basic-addon1" />
+                  <FormControl type="number" placeholder="Generation" value={gen} onChange={handleGenChange} aria-label="Gen Year" aria-describedby="basic-addon1" />
               </InputGroup>
               <Button variant="primary" type="submit" className="w-100 mt-2">Submit</Button>
             </Form>
