@@ -13,7 +13,7 @@ const UserList = (props) => {
             <Table bordered hover variant='dark'>
               <thead>
                 <tr>
-                  <th className='text-info text-center'>#</th>
+                  <th className='text-danger text-center'>#</th>
                   <th className='text-warning text-center'>Name</th>
                   <th className='text-info text-center'>Email</th>
                   <th className='text-warning text-center'>Gen</th>
