@@ -22,7 +22,7 @@ const UserList = (props) => {
               <tbody>
                 {props.users.map((user, index) => {
                   return (
-                    <User key={index} user={user} index={index}/>
+                    <User key={user.id} user={user} index={index}/>
                   )})}
               </tbody>
             </Table>
