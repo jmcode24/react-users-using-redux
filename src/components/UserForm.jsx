@@ -62,6 +62,7 @@ function UserForm(props) {
               </InputGroup>
               <Button variant="primary" type="submit" className="w-100 mt-2">Submit</Button>
             </Form>
+            <h1 className="text-center text-success mt-5">List Of Users</h1>
           </Col>
         </Row>
       </Container>

@@ -1,42 +1,34 @@
 import React from "react";
 import { Container, Row, Col, Table } from 'react-bootstrap';
 import { connect } from "react-redux";
+import User from './User'
 
 const UserList = (props) => {
   return (
     <div>
-      <Container fluid>
+     <Container fluid>
         <Row>
-          <Col md='6' className='mx-auto mt-3'>
-          <h1 className="text-center text-success">List Of Users</h1>
-          <div>
-            <Table bordered hover variant='dark'>
+          <Col md='6' className='mx-auto'>
+            <Table bordered hover variant="dark">
               <thead>
                 <tr>
-                  <th className='text-danger text-center'>#</th>
-                  <th className='text-warning text-center'>Name</th>
-                  <th className='text-info text-center'>Email</th>
-                  <th className='text-warning text-center'>Gen</th>
+                  <th className="text-danger text-center">#</th>
+                  <th className="text-warning text-center">Name</th>
+                  <th className="text-info text-center">Email</th>
+                  <th className="text-warning text-center">Gen</th>
+                  <th className="text-info text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
-              {props.users.map((user, index) => {
-                return (
-                  // user.name + "-" + index
-                  <tr key={index}>
-                    <td className="text-center text-success">{index + 1}</td>
-                    <td className="text-center">{user.name}</td>
-                    <td className="text-center">{user.email}</td>
-                    <td className="text-center">{user.gen}</td>
-                  </tr>
-                );
-              })}
+                {props.users.map((user, index) => {
+                  return (
+                    <User key={index} user={user} index={index}/>
+                  )})}
               </tbody>
             </Table>
-          </div>
           </Col>
         </Row>
-      </Container>
+     </Container>
     </div>
   );
 };
