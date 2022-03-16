@@ -4,12 +4,17 @@ import { connect } from "react-redux";
 import User from './User'
 
 const UserList = (props) => {
+  const users = props.users;
+
   return (
     <div>
      <Container fluid>
         <Row>
           <Col md='6' className='mx-auto'>
-            <Table bordered hover variant="dark">
+            {users.length > 0 ? (
+              <>
+              <h3 className='text-success mt-4 mb-2 text-center'>List Of Users</h3>
+              <Table bordered hover variant="dark">
               <thead>
                 <tr>
                   <th className="text-danger text-center">#</th>
@@ -26,6 +31,8 @@ const UserList = (props) => {
                   )})}
               </tbody>
             </Table>
+              </>
+            ) : ('')}
           </Col>
         </Row>
      </Container>

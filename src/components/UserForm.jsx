@@ -50,19 +50,18 @@ function UserForm(props) {
             <Form onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><FaUser /></InputGroup.Text>
-                  <FormControl type="text" placeholder="Your Name" value={name} onChange={handleNameChange} aria-label="Name" aria-describedby="basic-addon1" />
+                  <FormControl type="text" placeholder="Your Name" required value={name} onChange={handleNameChange} aria-label="Name" aria-describedby="basic-addon1" />
               </InputGroup>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><AiOutlineMail /></InputGroup.Text>
-                  <FormControl type="email" placeholder="Your Email" value={email} onChange={handleEmailChange} aria-label="Email" aria-describedby="basic-addon1" />
+                  <FormControl type="email" placeholder="Your Email" required value={email} onChange={handleEmailChange} aria-label="Email" aria-describedby="basic-addon1" />
               </InputGroup>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><AiOutlineNumber /></InputGroup.Text>
-                  <FormControl type="number" placeholder="Generation" value={gen} onChange={handleGenChange} aria-label="Gen Year" aria-describedby="basic-addon1" />
+                  <FormControl type="number" placeholder="Generation" required value={gen} onChange={handleGenChange} aria-label="Gen Year" aria-describedby="basic-addon1" />
               </InputGroup>
               <Button variant="primary" type="submit" className="w-100 mt-2">Submit</Button>
             </Form>
-            <h1 className="text-center text-success mt-5">List Of Users</h1>
           </Col>
         </Row>
       </Container>
