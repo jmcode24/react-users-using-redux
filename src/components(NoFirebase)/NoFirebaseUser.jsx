@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {Button, Modal, InputGroup, FormControl } from 'react-bootstrap';
+import { editUserAction, deleteUserAction } from '../actions/actions';
+import { connect} from 'react-redux';
 import { FaUser } from "react-icons/fa";
 import { AiOutlineMail, AiOutlineNumber } from "react-icons/ai";
-import firebase from '../firebase/config'
 
 function User(props) {
   const user = props.user;
@@ -14,28 +15,20 @@ function User(props) {
   const [gen, setGen] = useState(user.gen);
 
   const handleDelete = () => {
-    try {
-      firebase.firestore().collection("users").doc(user.id).delete();
-    } catch (error) {
-      console.log(error);
-    }
+    props.deleteUser(user.id);
   };
 
-  const handleSubmit = async () => {
-    try {
-      let userData = {
-        id: user.id,
-        name: name,
-        email: email,
-        gen: gen,
-      };
+  const handleSubmit = () => {
+    let userData = {
+      id: user.id,
+      name: name,
+      email: email,
+      gen: gen,
+    };
 
-      firebase.firestore().collection("users").doc(user.id).update(userData);
+    props.editUser(user.id, userData);
 
-      handleClose();
-    } catch (error) {
-      console.log(error);
-    }
+    handleClose();
   };
 
   const handleClose = () => {
@@ -83,4 +76,9 @@ function User(props) {
   );
 };
 
-export default User;
+const sendActionAsProps = {
+  deleteUser: deleteUserAction,
+  editUser: editUserAction,
+};
+
+export default connect(null, sendActionAsProps)(User);

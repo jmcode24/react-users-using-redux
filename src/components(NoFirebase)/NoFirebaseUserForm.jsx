@@ -3,10 +3,11 @@ import { Container, Row, Col, Form, InputGroup, FormControl, Button } from 'reac
 import { FaUser } from "react-icons/fa";
 import { AiOutlineMail, AiOutlineNumber } from "react-icons/ai";
 import { v4 as uuid } from 'uuid';
-import firebase from '../firebase/config';
+import { connect } from "react-redux";
+import { addUserAction } from "../actions/actions";
 
 
-function UserForm() {
+function UserForm(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [gen, setGen] = useState('');
@@ -19,31 +20,26 @@ function UserForm() {
     setEmail(e.target.value);
   }
 
-  const handleGenChange = async (e) => {
+  const handleGenChange = (e) => {
     setGen(e.target.value);
   }
 
   const handleSubmit = (e) => {
+    e.preventDefault();
 
-    try {
-      e.preventDefault();
+    let newUser = {
+      id: uuid(),
+      name: name,
+      email: email,
+      gen: gen,
+    };
 
-      let newUser = {
-        id: uuid(),
-        name: name,
-        email: email,
-        gen: gen,
-      };
-
-      firebase.firestore().collection("users").doc(newUser.id).set(newUser);
-    } catch (error) {
-      console.log(error);
-    }
-
+    props.addUser(newUser);
+    
     setName('');
     setEmail('');
     setGen('');
-  };
+  }
 
   return (
     <div>
@@ -73,4 +69,9 @@ function UserForm() {
 
 };
 
-export default UserForm;
+//aka mapDispatchToProps
+const sendActionAsProps = {
+  addUser: addUserAction,
+};
+
+export default connect(null, sendActionAsProps)(UserForm);

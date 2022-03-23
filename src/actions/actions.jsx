@@ -1,23 +1,6 @@
-export const addUserAction = (user) => {
+export const setUsers = (users) => {
   return {
-    type: "ADD_USER",
-    payload: user,
-  };
-};
-
-export const editUserAction = (id, userData) => {
-  return {
-    type: "EDIT_USER",
-    payload: {
-      id: id,
-      userData: userData,
-    },
-  };
-};
-
-export const deleteUserAction = (id) => {
-  return {
-    type: "DELETE_USER",
-    payload: id,
+    type: "SET_USERS",
+    payload: users,
   };
 };
