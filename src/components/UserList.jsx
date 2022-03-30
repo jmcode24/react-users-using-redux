@@ -8,7 +8,7 @@ const UserList = (props) => {
 
   return (
     <div>
-     <Container fluid>
+     <Container>
         <Row>
           <Col md='6' className='mx-auto'>
             {users.length > 0 ? (
@@ -42,7 +42,7 @@ const UserList = (props) => {
 
 //aka mapStateToProps
 const sendDataAsProps = (state) => {
-  return {users: state.users};
+  return {users: state.users.users};
 };
 
 export default connect(sendDataAsProps)(UserList);

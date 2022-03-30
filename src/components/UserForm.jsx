@@ -23,6 +23,14 @@ function UserForm() {
     setGen(e.target.value);
   }
 
+  const signOut = async () => {
+    try {
+      firebase.auth().signOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
 
     try {
@@ -50,7 +58,10 @@ function UserForm() {
       <Container>
         <Row>
           <Col md='6' className='mx-auto mt-2'>
-            <h1 className="text-center text-danger mb-3 mt-2">Redux Users App</h1>
+            <div className="d-flex justify-content-between mb-3 mt-2">
+              <h4 className="text-muted mark fw-bold fst-italic">Welcome </h4>
+              <Button variant="outline-danger" size="sm" onClick={signOut}>Sign out</Button>
+            </div>
             <Form onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
                 <InputGroup.Text id="basic-addon1"><FaUser /></InputGroup.Text>
