@@ -65,10 +65,10 @@ const Login = () => {
                 </Form.Group>
                 <div className="d-flex justify-content-between mt-2">
                   <Button variant="primary" type="submit" onClick={handleLogin}>
-                  Sign in
+                  Login
                   </Button>
                   <Button variant="outline-warning" type="submit" onClick={signInWithGoogle}>
-                    Sign in with Google
+                    Login with Google
                   </Button>
                 </div>
                 <h6 className="mt-3 mb-4 text-center">
