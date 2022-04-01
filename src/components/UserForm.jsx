@@ -60,7 +60,7 @@ function UserForm() {
           <Col md='6' className='mx-auto mt-2 shadow-lg p-3 mb-4 bg-body rounded'>
             <div className="d-flex justify-content-between mb-3 mt-2">
               <h4 className="text-muted mark fw-bold fst-italic">Welcome </h4>
-              <Button variant="outline-danger" size="sm" onClick={signOut}>Sign out</Button>
+              <Button variant="outline-danger" size="sm" onClick={signOut}>Log out</Button>
             </div>
             <Form onSubmit={handleSubmit}>
               <InputGroup className="mb-2">
