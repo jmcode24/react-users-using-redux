@@ -13,8 +13,8 @@ const UserList = (props) => {
           <Col md='6' className='mx-auto'>
             {users.length > 0 ? (
               <>
-              <h3 className='text-success mt-4 mb-2 text-center'>List Of Users</h3>
-              <Table bordered hover variant="dark">
+              <h3 className='text-success mb-2 text-center'>List Of Users</h3>
+              <Table className="shadow-lg p-2 mt-2 mb-2" bordered hover variant="dark">
               <thead>
                 <tr>
                   <th className="text-danger text-center">#</th>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Col, Row, Form, Button } from "react-bootstrap";
+import { Container, Col, Row, Form, Button, Spinner } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import firebase from "../firebase/config";
 import firebase2 from "firebase";
@@ -7,6 +7,7 @@ import firebase2 from "firebase";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,6 +19,7 @@ const Login = () => {
       firebase.auth().signInWithPopup(provider);
 
       navigate("/", { replace: true });
+      
     } catch (error) {
       console.log(error);
     }
@@ -27,12 +29,15 @@ const Login = () => {
     try {
       e.preventDefault();
 
+      setLoading(true);
        await firebase
         .auth()
         .signInWithEmailAndPassword(email, password);
 
       navigate("/", { replace: true });
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -64,8 +69,11 @@ const Login = () => {
                   />
                 </Form.Group>
                 <div className="d-flex justify-content-between mt-2">
-                  <Button variant="primary" type="submit" onClick={handleLogin}>
-                  Login
+                  <Button disabled={loading} variant="primary" type="submit" onClick={handleLogin}>
+                    {loading ? (
+                      <i>
+                        <Spinner as="span" animation="border" variant="light" size="sm" role="status" aria-hidden="true"/> Logging in
+                      </i>) : ("Log in")}
                   </Button>
                   <Button variant="outline-warning" type="submit" onClick={signInWithGoogle}>
                     Login with Google
